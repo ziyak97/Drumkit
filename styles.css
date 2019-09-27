@@ -1,0 +1,55 @@
+/* Makes my background image cover the full screen on Desktop and Mobile */
+html, body {
+    height: 100%;
+}
+
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* This just makes my background slightly darker for better key visibility*/
+    background-image:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('images/background.jpg');
+}
+
+kbd {
+    color: white;
+    font-size: 3rem;
+}
+
+/* I space the elements using grid positioning */
+.keys {
+    padding: 22% 10%;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-gap: 2%;
+}
+
+.key {
+    border: 5px solid;
+    border-radius: 7%;
+    padding: 0.5rem;
+    text-align: center;
+    /* Used to transition to the playing class on keydown event */
+    transition: all .07s ease;
+}
+
+.key-text {
+    display: block;
+    font-size: 0.7rem;
+    color: #ffc600;
+}
+
+.playing {
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
+}
+
+/* just changing the grid a little for smaller screens */
+@media (max-width: 640px) {
+    .keys {
+        padding: 22% 6%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 40% 6%;
+    }
+}
