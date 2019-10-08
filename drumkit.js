@@ -2,6 +2,7 @@
 // just have to slightly change the function i used for keydown
 
 const keys = document.querySelectorAll('.key'); // selecting all the keys from key class
+const key = document.querySelector('div .key');
 
 // This is just what to do when the keydown event is called
 window.addEventListener('keydown', e => {
@@ -25,4 +26,14 @@ keys.forEach(key => key.addEventListener('transitionend', e => {
     // property with the highest transition value, selected transform propertyName but could select any of the others)
     if(e.propertyName !== 'transform') return; // if the event doesn't have a propery name of transform I'll exit
     key.classList.remove('playing'); // removing the playing class
+}));
+
+
+// Eventually just decided to add click functionality
+keys.forEach(key => key.addEventListener('click', e => {
+    const keyCode = key.classList[1];
+    const audio = document.querySelector(`audio.${keyCode}`);
+    audio.currentTime = 0;
+    audio.play();
+    key.classList.add('playing');
 }));

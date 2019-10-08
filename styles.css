@@ -44,6 +44,15 @@ kbd {
     box-shadow: 0 0 1rem #ffc600;
 }
 
+/* I wanna disable the text from being selected. Should have just made it buttons */
+.disable-select {
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
 /* just changing the grid a little for smaller screens */
 @media (max-width: 640px) {
     .keys {
